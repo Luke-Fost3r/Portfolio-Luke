@@ -1,0 +1,15 @@
+         SODOKU  
+enter the known solved numbers in the below spots
+leave the unknown numbers as 'x'
+  
+  x 9 x | x x x | x 5 2
+  x 6 x | x 2 x | x x x
+  x 4 x | x x x | 7 8 x
+--------|-------|--------
+  x 8 x | 1 x x | x 7 4
+  7 x x | 5 9 x | x 6 x
+  2 x x | 7 x x | x x 5
+--------|-------|--------
+  4 x 3 | x 5 x | x 9 8
+  8 x x | x 4 x | x x 7
+  9 x x | x 7 1 | x x x

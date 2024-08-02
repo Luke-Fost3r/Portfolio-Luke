@@ -1,0 +1,15 @@
+         SODOKU  
+enter the known solved numbers in the below spots
+leave the unknown numbers as 'x'
+  
+  x x x | x x x | x x x
+  x x x | x x x | x x x
+  x x x | x x x | x x x
+--------|-------|--------
+  x x x | x x x | x x x
+  x x x | x x x | x x x
+  x x x | x x x | x x x
+--------|-------|--------
+  x x x | x x x | x x x
+  x x x | x x x | x x x
+  x x x | x x x | x x x
