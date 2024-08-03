@@ -36,7 +36,7 @@ Outside of the keydetection in this control() function an x variable counts each
 Each time x reaches the speed variable, representing a move occuring, the display_peice(), blit_grid(), display_background(), blit_score(), blit_onhold(), and pygame.display.update() are called sequentially, updating the graphics the following; the current peice is displayed using its peice data and color, the grid lines are displayed over the peice, the background is then displayed which includes the title, the score is displayed over the background, the upnext peice is displayed in a box over the background, and then all graphic updates to the game window are updated calling to pygame.
 
 
-###################################################################################
+###########################################################################################################################################################################################
 
 
 SUDOKU SOLVER
