@@ -44,3 +44,16 @@ Each time x reaches the speed variable, representing a move occuring, the displa
 
 SUDOKU SOLVER
 
+Important to note; This program consists of four important files, sudoku.py which contains the solving stradegies, methods.py containing the class method which most importantly utilizes the __getitem__ special method and removes a huge amount of redundancy from the program, then finnaly the data.txt, and output.txt which contain the starting unsolved sudoku, and the solved product data of the program.
+
+Overview;
+A file pointer is retrieved by calling the open_file() function. This function repeatedly asks the user for a file name until the file is succesfully opened and the fp is returned to main().
+The sodoku data is retrieved, by calling get_data(). Using the file pointer, the file is read line by line, and the numbers and blank spaces are extracted and appended to a 2d list representing the unsolved sudoku board.
+
+Next a board object is created by calling the method() class. Method(), initializes itself with the data extracted, includes a printing method which returns a string of the data, and most importanty contains the get_item special method. This method allows the program to pull specific row, column, or box lists from the data by stating board[a,b]. If both a and b are integers, a single number is returned representing x,y coordinates of the number. If only b is provided, than a row is returned. If only a is provided a column is returned. If b is provided with a being some character, than that number b, box is returned.
+
+Next validate_data() and validate_board() are called. validate_data() returns false if the input file given by the user contains not enough data, or inproper data. validate_board() returns false if the data inputed by the user does not meet the rules of sudoku.
+If the data entered is validated, then a loop is entered which repeatedly calls to the two solving stradegies;
+Sole_candidate():
+hidden_single():
+As long as at least one possibilitie is crossed of, or one unit is solved in that itteration. Once this is not the case, return_data() is called which checks to see if the board was able to be completed, formats the data along with a message to the user, and opens a file with that data.
