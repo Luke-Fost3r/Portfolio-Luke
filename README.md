@@ -20,10 +20,15 @@ Once starting variables are initialized, the main game loop begins, which consta
 
 
 LEFT: Calls to move_peice() function passing the peice data, x movement instructions of -1, y movement instructions of 0, and the peice map defined previously as a 2d list.
+
 RIGHT: Simaler to when left key stroke is detected except the x movement instruction is 1.
+
 DOWN: Also same as previous key detections, exception being x instructions at 0, with y instructions at 1.
+
 SPACE: begins loop of repreatedly calling move_peice function with downward instruction of y = 1, until a collision is detected which breaks from loop.
+
 UP: calls to rotate_peice() function which utilizes a rotation formula for each block unit in a peice, where the rotation point is the second coordinate in each tetominos list of coordinates.
+
 For each of the above keystokes, the coordinates before movement are held in a placeholder variable, then the coordinates are adjusted, passed to the check_collision() function, so that if a collision is detected the changed coordinates are discarded and the placeholder is returned. A peice is never set due to a horizontal collision, the status of the peice is only updated to 'S' if a vertical collision is found.
 If the current peice's status is set at 'S', a freeze variable is set at true, which ensures that no more keydetection is used until the peice is finished setting, and all coresponding functions have completed there task. This variable was key to eliminating bugs such as unexpected peice behavior when keystrokes where pressed the instant the program was attempting to set a peice. Once freeze is true, the score is increased, and the set_peice() function is called, which stores the color of the tetrominos blocks for each of their coordinates for later graphic desplay. Next, the clear_row() function is called, checks to see if the peice map grid has a full row, and if so brings all data from above rows down one row towards the cleared row. Then the player_dead() function is called that checks if the set peices current coordinates are out of bounds of the peice map; if so, the control loop is exited, and simaler to the start() function a dead_restart() function is called which displays a restart button animation if space is detected, and calls back to control function restarting the game. Finally new peice_data is retrieved, the speed of the game is updated based on the height of the score variable, and freeze is set to false allowing keydetection to start again.
 
