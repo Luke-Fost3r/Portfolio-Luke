@@ -1,7 +1,6 @@
 # Portfolio-Luke
 A collection of my current projects on my journey to become a computer scientist, feel free to explore, and see how I approached different problems
 
-Tetris and sudoku are games ive played since childhood, so once my programming ability had grown some, I knew these games would be on my project list
 
 
 TETRIS (lukes version)
