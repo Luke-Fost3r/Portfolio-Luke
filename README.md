@@ -37,9 +37,7 @@ Outside of the keydetection in this control() function an x variable counts each
 Each time x reaches the speed variable, representing a move occuring, the display_peice(), blit_grid(), display_background(), blit_score(), blit_onhold(), and pygame.display.update() are called sequentially, updating the graphics the following; the current peice is displayed using its peice data and color, the grid lines are displayed over the peice, the background is then displayed which includes the title, the score is displayed over the background, the upnext peice is displayed in a box over the background, and then all graphic updates to the game window are updated calling to pygame.
 
 
-
-
-
+###################################################################################
 
 
 SUDOKU SOLVER
@@ -48,12 +46,14 @@ Important to note; This program consists of four important files, sudoku.py whic
 
 Overview;
 A file pointer is retrieved by calling the open_file() function. This function repeatedly asks the user for a file name until the file is succesfully opened and the fp is returned to main().
-The sodoku data is retrieved, by calling get_data(). Using the file pointer, the file is read line by line, and the numbers and blank spaces are extracted and appended to a 2d list representing the unsolved sudoku board.
+The sodoku data is retrieved, by calling get_data(). Using the file pointer, the file is read line by line, and the numbers and blank spaces are extracted and appended to a 2d list representing the unsolved sudoku board, with each unsolved value a list of all nine possibilites.
 
 Next a board object is created by calling the method() class. Method(), initializes itself with the data extracted, includes a printing method which returns a string of the data, and most importanty contains the get_item special method. This method allows the program to pull specific row, column, or box lists from the data by stating board[a,b]. If both a and b are integers, a single number is returned representing x,y coordinates of the number. If only b is provided, than a row is returned. If only a is provided a column is returned. If b is provided with a being some character, than that number b, box is returned.
 
 Next validate_data() and validate_board() are called. validate_data() returns false if the input file given by the user contains not enough data, or inproper data. validate_board() returns false if the data inputed by the user does not meet the rules of sudoku.
 If the data entered is validated, then a loop is entered which repeatedly calls to the two solving stradegies;
-Sole_candidate():
-hidden_single():
+
+Sole_candidate(): This stradigy itterates through each list of rows, columns and boxes. For each solved value in a list, that value is removed from the possibilities list. At any point during this proccess, if a list conatains a possibilities list with only one possibiliite, that value is filled in for that spot.
+hidden_single(): This stradegy itterates through every list of rows, columns, and boxes aswell. For each list, a count of all the possibilities is made. If any number has only a count of one, that value is filled in for that spot.
+
 As long as at least one possibilitie is crossed of, or one unit is solved in that itteration. Once this is not the case, return_data() is called which checks to see if the board was able to be completed, formats the data along with a message to the user, and opens a file with that data.
