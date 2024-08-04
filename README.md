@@ -39,6 +39,6 @@ Next validate_data() and validate_board() are called. validate_data() returns fa
 
 Sole_candidate(): This strategy iterates through each list of rows, columns and boxes. For each solved value in a list, that value is removed from the possibilities list. At any point during this process, if a list contains a possibilities list with only one possibility, that value is filled in for that spot. 
 
-hidden_single(): This strategy iterates through every list of rows, columns, and boxes as well. For each list, a count of each possibility occurence in row/column/box is made. If any number has only a count of one, that value is filled in for that spot.
+hidden_single(): This strategy iterates through every list of rows, columns, and boxes as well. For each list, a count of each possibility occurrence in row/column/box is made. If any number has only a count of one, that value is filled in for that spot.
 
-As long as at least one possibility is crossed off, or one unit is solved in an itteration of the two stradegys loop, the loop will continue to itterate. Once this is not the case, return_data() is called which checks to see if the board was able to be completed, formats the data along with a message to the user, and opens a file presenting the solved data.
+As long as at least one possibility is crossed off, or one unit is solved in an iteration of the two stradegies loop, the loop will continue to iterate. Once this is not the case, return_data() is called which checks to see if the board was able to be completed, formats the data along with a message to the user, and opens a file presenting the solved data.
