@@ -42,8 +42,6 @@ def set_peice(peice_data,peice_map):
         peice_map[y][x] = color
 
 def check_collision(x,y,dx,dy,peice_map):
-    #also check for peice to peice collision
-
     #wall collisions
     if not 0 <= x <= 9:
         return 'H'  #horizontal collision
@@ -101,12 +99,3 @@ def tela_peice(peice_data, peice_map):
     while peice_data[2] == 'N':
         peice_data = move_peice(peice_data, 0, 1, peice_map)
     return peice_data
-
-#test function
-
-'''
-if space pressed
-    while no collision
-    call move_peice function; with y = -1
-    once collision is found return peice data as usuall
-'''
