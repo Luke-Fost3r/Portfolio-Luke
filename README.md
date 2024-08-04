@@ -3,6 +3,7 @@ A collection of my current projects on my journey to become a computer scientist
 
 
 TETRIS (Luke's version)
+
 Important to note; this project utilizes pygame; most importantly for an easy built in game clock (set at 60 ticks per second), and keyboard detection function. Many 'surfaces' are defined, and used for 'screen.blit(surface)' which take up many lines of simple variable definition and display statements, but are crucial for the arcade style graphics of this program. This program is split into two main files for organization and readability purposes, main.py and extra.py; the main file consists of all of pygames commands including the game clock and keyboard input detection loop, while extra.py handles most of the data and altering of said data.
 
 Overview; When the program is run, the start() function is called, displaying a button surface, and entering a while loop to detect for the space key. Once pressed a button push animation is prompted, along with breaking from the loop, and calling to the main control() function.
@@ -25,7 +26,9 @@ Outside of the key detection in this control() function an x variable counts eac
 
 
 
+
 SUDOKU SOLVER
+
 Important to note; This program consists of four important files, sudoku.py which contains the solving strategies, methods.py containing the class method which most importantly utilizes the getitem special method and removes a huge amount of redundancy from the program, then finally the data.txt, and output.txt which contain the starting unsolved sudoku, and the solved product data of the program.
 
 Overview; A file pointer is retrieved by calling the open_file() function. This function repeatedly asks the user for a file name until the file is successfully opened and the fp is returned to main(). The sudoku data is retrieved, by calling get_data(). Using the file pointer, the file is read line by line, and the numbers and blank spaces are extracted and appended to a 2d list representing the unsolved sudoku board, with each unsolved value a list of all nine possibilities.
