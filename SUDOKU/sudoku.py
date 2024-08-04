@@ -1,7 +1,4 @@
 from methods import method
-"""
-DOCSTRING
-"""
 
 def open_file():
     while True:
@@ -166,25 +163,6 @@ def hidden_single(board):
                     did_something = True
     return did_something
 
-'''
-def naked pair test function
-
-for ROW column and box
-
-a,b = 'N', 'N'
-if row contains more than two empty cells #
-    if row.count(type(list)) >= 2:
-    for thing in row:
-        if thing == a,b:
-            print('found') #remove all other occurences from 
-        if thing == list and len(list) == 2:
-            a,b = thing[0], thing[1]
-
-            
-    find two cells that share the same ONLY two possibilitys
-    remove those possiblities from rest of row and box
-'''
-
 def main():
     #print introduction to users
     print('\n                             |SODOKU|\n')
@@ -207,6 +185,7 @@ def main():
         print("The data provided does not meet sodoku's rule requirements, please check that numbers are in the correct spot")
     else: 
         print('The data file provided was validified,\n     look at file "output_data.txt" for the results.\n')
+        
         #alternate between using sole candidate and hidden single solving stradegies
         #continue calling stradegy functions while at least 1 possibility is removed or candidate is solved for
         #once both functions have been called and no changes have been made, terminate program
@@ -219,6 +198,3 @@ def main():
         return_data(board)
 
 main()
-
-#consider adding naked pair
-#  
