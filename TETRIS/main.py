@@ -105,7 +105,6 @@ def blit_score(score):
     screen.blit(score_surface,(10,75))
 
 def set_speed(score):
-    #set speeds to increase at proper increment, and fix scoring, clearing rows should be weighted higher than setting peice
     speed = 60
     
     if score > 9000:
@@ -250,13 +249,9 @@ def control():
                 cover_peice(peice_data)
                 if event.key == pygame.K_RIGHT:
                     peice_data = extra.move_peice(peice_data, 1, 0, peice_map)
-                    #if peice_data[2] == 'S':
-                    #   freeze =  PEICE SHOULDNT BE SET FROM HORIZONTAL MOVE
 
                 if event.key == pygame.K_LEFT:
                     peice_data = extra.move_peice(peice_data, -1, 0, peice_map)
-                    #if peice_data[2] == 'S':
-                    #    freeze = True
 
                 if event.key == pygame.K_DOWN:
                     peice_data = extra.move_peice(peice_data, 0, 1, peice_map)
@@ -266,22 +261,18 @@ def control():
                 if event.key == pygame.K_UP:
                     peice_data = extra.rotate_peice(peice_data, 0, 0, peice_map)
 
-                ####
                 if event.key == pygame.K_SPACE:
                     peice_data = extra.tela_peice(peice_data, peice_map)
                     if peice_data[2] == 'S':
                         freeze = True
-                ####
         
         if freeze == True:
-            
             score += 4 + (30 // speed)###
 
             extra.set_peice(peice_data,peice_map)
             points = extra.clear_row(peice_map)
             score += points + (100 // speed)###
 
-        
             blit_peices(peice_map)
             blit_grid()
 
@@ -320,10 +311,6 @@ def control():
     blit_score(score)
     blit_onhold(onhold_peice)
     dead_restart()
-
-'''
-when user clicks space, a button push animation is triggered, and main game loop is called
-'''
 
 def dead_restart():
     back = pygame.Surface((54,54))
