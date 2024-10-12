@@ -16,11 +16,9 @@ def peice_info(num):
 
 def clear_row(peice_map):
     rows_cleared = 0
-
     for i in range(17):
         row = peice_map[i]
         if 0 not in row:
-            
             for j in range(i):
                 peice_map[i-j] = peice_map[i-(j+1)]
             peice_map[0] = [0,0,0,0,0,0,0,0,0,0]
@@ -64,7 +62,6 @@ def move_peice(peice_data, dx, dy, peice_map):
         x,y = holder[i]
         x,y = x + dx, y + dy
         holder[i] = [x,y]
-
         status = check_collision(x,y,dx,dy,peice_map)
         if status != False:
             if status == 'V':
@@ -77,7 +74,6 @@ def rotate_peice(peice_data, dx, dy, peice_map):
     if peice_data[1] != 'yellow':
         holder = peice_data[0].copy()
         a,b = holder[1]
-        
         for i in range(4):
             x,y = holder[i]
             x,y = -(y - b) + a, (x - a) + b 
