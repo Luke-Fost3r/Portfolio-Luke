@@ -1,3 +1,4 @@
+#more comments added tn 10/12
 import pygame
 import extra
 import time
@@ -106,7 +107,6 @@ def blit_score(score):
 
 def set_speed(score):
     speed = 60
-    
     if score > 9000:
         speed = 1
     elif score > 8000:
@@ -141,7 +141,6 @@ def set_speed(score):
         speed = 42
     elif score > 50:
         speed = 50
-    
     return speed
 
 def blit_grid():
@@ -161,7 +160,6 @@ def display_peice(peice_data):
     coordinates, color = peice_data[0], peice_data[1]
     block = pygame.Surface((30,30))
     block.fill(color)
-
     for x,y in coordinates:
         x = (x * 30) + 100
         y = (y * 30) - 70
@@ -176,7 +174,6 @@ def blit_peices(peice_map):
                 block.fill("black")
             else:
                 block.fill(color)
-            
             c = (x * 30) + 100
             r = ((y+4) * 30) - 70
             screen.blit(block,(c,r))
@@ -184,7 +181,6 @@ def blit_peices(peice_map):
 def blit_onhold(onhold_peice):
     onhold_data = extra.peice_info(onhold_peice)
     coordinates, color = onhold_data[0], onhold_data[1]
-
     block = pygame.Surface((13,13))
     block.fill(color)
     for x,y in coordinates:
@@ -193,13 +189,11 @@ def blit_onhold(onhold_peice):
         else:
             y = (y * 13) + 155
         x = (x * 13) - 18
-        
         screen.blit(block,(x,y))
 
 def cover_peice(peice_data):
     coordinates = peice_data[0]
     cover_block = pygame.Surface((30,30))
-    
     for x, y in coordinates:
         x = (x * 30) + 100
         y = (y * 30) - 70
@@ -210,7 +204,6 @@ def control():
     x = 0
     speed = 60
     score = 0
-
     peice_map = [
     [0,0,0,0,0,0,0,0,0,0],
     [0,0,0,0,0,0,0,0,0,0],
@@ -292,21 +285,16 @@ def control():
         x += 1
         if x == speed:
             x = 0
-
             cover_peice(peice_data)
             peice_data = extra.move_peice(peice_data, 0, 1, peice_map)
             if peice_data[2] == 'S':
                 freeze = True
-
         display_peice(peice_data)
         blit_grid()
         display_background()
-
         blit_score(score)
-
         blit_onhold(onhold_peice)
         pygame.display.update()
-
     display_background()
     blit_score(score)
     blit_onhold(onhold_peice)
