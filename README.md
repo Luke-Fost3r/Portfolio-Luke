@@ -2,6 +2,11 @@
 A collection of my current projects on my journey to become a computer scientist, feel free to explore, and see how I approached different problems
 
 
+ADD MISSION/VISION statment CAREER OBJECTIVE
+breifly about me, insparation, ect
+
+short, less than 2 paragraphs on each program, main descrition should be understood through code and code comments
+
 TETRIS (Luke's version)
 
 Important to note; this project utilizes pygame; most importantly for an easy built in game clock (set at 60 ticks per second), and keyboard detection function. Many 'surfaces' are defined, and used for 'screen.blit(surface)' which take up many lines of simple variable definition and display statements, but are crucial for the arcade style graphics of this program. This program is split into two main files for organization and readability purposes, main.py and extra.py; the main file consists of all of pygames commands including the game clock and keyboard input detection loop, while extra.py handles most of the data and altering of said data.
