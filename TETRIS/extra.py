@@ -1,3 +1,4 @@
+##NEED MORE COMMENTS ADD tonight 10/12
 def peice_info(num):
     colors = ["yellow", "cyan3", "red", "orange", "blue", "purple", "green"]
     #rotate about second coordinate value (excluding O)
@@ -36,7 +37,6 @@ def player_dead(peice_data):
 def set_peice(peice_data,peice_map):
     coordinates = peice_data[0]
     color = peice_data[1]
-
     for x,y in coordinates:
         y = y - 4
         peice_map[y][x] = color
@@ -56,12 +56,10 @@ def check_collision(x,y,dx,dy,peice_map):
             return 'V'
         else:
             return True
-
     return False
 
 def move_peice(peice_data, dx, dy, peice_map):
     holder = peice_data[0].copy()
-
     for i in range(4):
         x,y = holder[i]
         x,y = x + dx, y + dy
@@ -72,9 +70,7 @@ def move_peice(peice_data, dx, dy, peice_map):
             if status == 'V':
                 peice_data[2] = 'S'
             return peice_data
-
     peice_data[0] = holder.copy()
-
     return peice_data
 
 def rotate_peice(peice_data, dx, dy, peice_map):
@@ -82,20 +78,16 @@ def rotate_peice(peice_data, dx, dy, peice_map):
         holder = peice_data[0].copy()
         a,b = holder[1]
         
-
         for i in range(4):
             x,y = holder[i]
             x,y = -(y - b) + a, (x - a) + b 
             holder[i] = [x,y]
-
             if check_collision(x,y,dx,dy,peice_map):
                 return peice_data
         peice_data[0] = holder.copy()
-
     return peice_data
 
 def tela_peice(peice_data, peice_map):
-    
     while peice_data[2] == 'N':
         peice_data = move_peice(peice_data, 0, 1, peice_map)
     return peice_data
