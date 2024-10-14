@@ -1,4 +1,3 @@
-##NEED MORE COMMENTS ADD tonight 10/12
 def peice_info(num):
     colors = ["yellow", "cyan3", "red", "orange", "blue", "purple", "green"]
     #rotate about second coordinate value (excluding O)
@@ -18,13 +17,17 @@ def clear_row(peice_map):
     rows_cleared = 0
     for i in range(17):
         row = peice_map[i]
+        #if row is full
         if 0 not in row:
             for j in range(i):
+                #move all contents down one
                 peice_map[i-j] = peice_map[i-(j+1)]
+            #top most row set to empty
             peice_map[0] = [0,0,0,0,0,0,0,0,0,0]
             rows_cleared += 1
     return (rows_cleared ** 2) * 10
 
+#if a peice is set out of bounds, return dead
 def player_dead(peice_data):
     coordinates = peice_data[0]
     for x,y in coordinates:
@@ -32,6 +35,7 @@ def player_dead(peice_data):
             return True
     return False
 
+#set peice on map, will then be displayed in location unlessed row is cleared
 def set_peice(peice_data,peice_map):
     coordinates = peice_data[0]
     color = peice_data[1]
@@ -60,30 +64,37 @@ def move_peice(peice_data, dx, dy, peice_map):
     holder = peice_data[0].copy()
     for i in range(4):
         x,y = holder[i]
+        #applys move to copy
         x,y = x + dx, y + dy
         holder[i] = [x,y]
         status = check_collision(x,y,dx,dy,peice_map)
+        #if move is valid, transfered to original data, else the copy is discarded
         if status != False:
             if status == 'V':
+                #if move causes downwards collision, mark peice to be set
                 peice_data[2] = 'S'
             return peice_data
     peice_data[0] = holder.copy()
     return peice_data
 
 def rotate_peice(peice_data, dx, dy, peice_map):
-    if peice_data[1] != 'yellow':
+    if peice_data[1] != 'yellow': #square peice does not rotate
         holder = peice_data[0].copy()
         a,b = holder[1]
         for i in range(4):
             x,y = holder[i]
+            #rotates around given axis (second coordinate in list)
             x,y = -(y - b) + a, (x - a) + b 
             holder[i] = [x,y]
+            #if move causes collision, copy is discarded
             if check_collision(x,y,dx,dy,peice_map):
                 return peice_data
         peice_data[0] = holder.copy()
     return peice_data
 
 def tela_peice(peice_data, peice_map):
+    #when space is pressed, a downward move of the peice is applied repeatedly until collision
     while peice_data[2] == 'N':
         peice_data = move_peice(peice_data, 0, 1, peice_map)
     return peice_data
+    
