@@ -1,4 +1,3 @@
-#more comments added tn 10/12
 import pygame
 import extra
 import time
@@ -7,14 +6,14 @@ from sys import exit
 
 pygame.init()
 
-width, height = 402,570
+width, height = 402,570 #pixel dimensions of view display
 
 pygame.display.set_caption('TETRIS')
 screen = pygame.display.set_mode((width,height))
 clock = pygame.time.Clock()
 
 def display_background():
-
+#visual declaration and display of background
     #backdrop surfaces
     l_side = pygame.Surface((100,570))
     r_side = pygame.Surface((2,570))
@@ -106,6 +105,7 @@ def blit_score(score):
     screen.blit(score_surface,(10,75))
 
 def set_speed(score):
+    #speed increases as user scores more points
     speed = 60
     if score > 9000:
         speed = 1
@@ -144,6 +144,7 @@ def set_speed(score):
     return speed
 
 def blit_grid():
+    #displays grid lines on game surface
     x_grid_line = pygame.Surface((1,510))
     x_grid_line.fill("black")
     y_grid_line = pygame.Surface((300,1))
