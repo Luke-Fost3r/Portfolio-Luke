@@ -167,6 +167,7 @@ def display_peice(peice_data):
         screen.blit(block,(x,y))
 
 def blit_peices(peice_map):
+    #displays colors on peice map to screen
     block = pygame.Surface((30,30))
     for y in range(17):
         for x in range(10):
@@ -175,11 +176,13 @@ def blit_peices(peice_map):
                 block.fill("black")
             else:
                 block.fill(color)
+            #converts 1-17 to pixel height and width
             c = (x * 30) + 100
             r = ((y+4) * 30) - 70
             screen.blit(block,(c,r))
 
 def blit_onhold(onhold_peice):
+    #gets the next peice ready, creating a new peice object
     onhold_data = extra.peice_info(onhold_peice)
     coordinates, color = onhold_data[0], onhold_data[1]
     block = pygame.Surface((13,13))
@@ -188,11 +191,13 @@ def blit_onhold(onhold_peice):
         if color == "green" or color == 'red' or color == "yellow" or color == "purple":
             y = (y * 13) + 169
         else:
+            #blue peice is longer, so is located higher up when starting
             y = (y * 13) + 155
         x = (x * 13) - 18
         screen.blit(block,(x,y))
 
 def cover_peice(peice_data):
+    #covers each peices blocks with black sqr
     coordinates = peice_data[0]
     cover_block = pygame.Surface((30,30))
     for x, y in coordinates:
@@ -231,6 +236,8 @@ def control():
     blit_peices(peice_map)
     blit_onhold(onhold_peice)
 
+    #freeze is set to true every time a peice is set
+    #     this way only one move is computed at a time, many bugs avoided
     freeze = False
 
     while True:
@@ -239,8 +246,10 @@ def control():
                 pygame.quit()
                 exit()
 
+            #as stated above, input is only checked for when peice is not in the process of being set
             if event.type == pygame.KEYDOWN and not freeze:
                 cover_peice(peice_data)
+
                 if event.key == pygame.K_RIGHT:
                     peice_data = extra.move_peice(peice_data, 1, 0, peice_map)
 
@@ -260,36 +269,37 @@ def control():
                     if peice_data[2] == 'S':
                         freeze = True
         
-        if freeze == True:
-            score += 4 + (30 // speed)###
+        if freeze == True: #this means peice is being set
+            score += 4 + (30 // speed) #increment score
 
-            extra.set_peice(peice_data,peice_map)
-            points = extra.clear_row(peice_map)
-            score += points + (100 // speed)###
+            extra.set_peice(peice_data,peice_map) #set peice
+            points = extra.clear_row(peice_map) #check to clear rows
+            score += points + (100 // speed) #increment score
 
             blit_peices(peice_map)
             blit_grid()
 
-            if extra.player_dead(peice_data):#might need to be before blit peices
+            if extra.player_dead(peice_data):
                 break
 
             current_peice = onhold_peice
             onhold_peice = random.randint(0,6)
-
             peice_data = extra.peice_info(current_peice)
-
             speed = set_speed(score)
             x = 0
             freeze = False
 
-        clock.tick(60)
+        clock.tick(60) #game proccessing speed (fps kinda)
         x += 1
+
+        #game speed can be changed as score increases
         if x == speed:
             x = 0
             cover_peice(peice_data)
-            peice_data = extra.move_peice(peice_data, 0, 1, peice_map)
+            peice_data = extra.move_peice(peice_data, 0, 1, peice_map) #an auto move down is made
             if peice_data[2] == 'S':
                 freeze = True
+        #update game screen accordingly
         display_peice(peice_data)
         blit_grid()
         display_background()
@@ -345,6 +355,7 @@ def dead_restart():
             if event.type == pygame.QUIT:
                 pygame.quit()
                 exit()
+            #check for space, to initiate animation
             if event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE:
                 back.fill("firebrick2")
                 block.fill("cornsilk3")
