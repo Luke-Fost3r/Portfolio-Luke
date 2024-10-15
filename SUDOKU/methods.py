@@ -2,7 +2,7 @@ class method(object):
     
     #initializes oject with 2d list as data attribute (sodoku data)
     def __init__(self, data):
-        #3d list for (1-9) attachted to given numbers
+        #3d list for (1-9) attatched to given numbers
         self.data = data
 
     #allows indexing to return specified individual, row, column, or box data
@@ -39,9 +39,9 @@ class method(object):
     def __str__(self):
         display = ''
         for row in self.data:
-            for char in row:
-                if len(char) == 1:
-                    display += char
+            for num in row:
+                if len(str(num)) == 1:
+                    display += str(num)
                 else:
                     display += 'x'
             display += '\n'
