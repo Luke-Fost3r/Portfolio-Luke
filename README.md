@@ -1,5 +1,5 @@
 # Portfolio-Luke
-A collection of my current projects on my journey to become a computer scientist, feel free to explore, and see how I approached different problems
+A collection of my current projects on my journey as a computer scientist, feel free to explore, and see how I approached different problems
 
 
 Disciplined and driven Computer Science student with a love for writing code and a fascination for
@@ -7,6 +7,7 @@ machine/deep learning and algorithm design. Eager to understand and approach the
 problems of the future and contribute to cutting-edge research. Attempting to opportunities to expand my knowledge and skills, and eventually pursue a PhD in the field of computer science.
 
 Some of my major inspirations include Alan Turing, Ada Lovelace, science fiction (hyperion), and ai philosophy. 
+
 
 
 TETRIS (Luke's version)
@@ -36,16 +37,10 @@ Outside of the key detection in this control() function an x variable counts eac
 
 SUDOKU SOLVER
 
-Important to note; This program consists of four important files, sudoku.py which contains the solving strategies, methods.py containing the class method which most importantly utilizes the getitem special method and removes a huge amount of redundancy from the program, then finally the data.txt, and output.txt which contain the starting unsolved sudoku, and the solved product data of the program.
+Important to note; This program consists of four important files, sudoku.py;the solving strategies, methods.py; the class method that utilizes getitem special method removing a huge amount of redundancy from the program, lastly data.txt and output.txt;containing the starting unsolved sudoku and the solved product data of the program.
 
-Overview; A file pointer is retrieved by calling the open_file() function. This function repeatedly asks the user for a file name until the file is successfully opened and the fp is returned to main(). The sudoku data is retrieved, by calling get_data(). Using the file pointer, the file is read line by line, and the numbers and blank spaces are extracted and appended to a 2d list representing the unsolved sudoku board, with each unsolved value a list of all nine possibilities.
+Data is read from a file inputed from user into a 2d list, which is then used to create a board object to utilize the get_item method. The board object is able to easily return any row, column or box from the data to the main program, avoiding many repetitive loops. Overall the program relys on sectional functions, which each act as an individual stradegy in solving a given sudoku. The four current main stradegys implemented include; sole candidate, hidden single, naked pair, and hidden pair. Sole candidate and hidden candidate run repeatedly until they are unable to make any changes, next both pair stradegys are used, and this proccess continues until no change is made. With this combination the program is able to solve up to even extreme sudoku's on the sudoku.com website/app.
 
-Next a board object is created by calling the method() class. Method(), initializes itself with the data extracted, includes a printing method which returns a string of the data, and most importantly contains the get_item special method. This method allows the program to pull specific row, column, or box lists from the data by stating board[a,b]. If both a and b are integers, a single number is returned representing x,y coordinates of the number. If only b is provided, then a row is returned. If only a is provided a column is returned. If b is provided as some character, then that number b, box is returned.
+Future changes; In the future I would like to add more advance stradegies such as X-wing, and swordfish. I would also like to play around with a brute force algorithm which guesses and back traces when board validity is false, over and over untill solved.
 
-Next validate_data() and validate_board() are called. validate_data() returns false if the input file given by the user contains not enough data, or improper data. validate_board() returns false if the data inputted by the user does not meet the rules of sudoku. If the data entered is validated, then a loop is entered which repeatedly calls to the two solving strategies;
-
-Sole_candidate(): This strategy iterates through each list of rows, columns and boxes. For each solved value in a list, that value is removed from the possibilities list. At any point during this process, if a list contains a possibilities list with only one possibility, that value is filled in for that spot. 
-
-hidden_single(): This strategy iterates through every list of rows, columns, and boxes as well. For each list, a count of each possibility occurrence in row/column/box is made. If any number has only a count of one, that value is filled in for that spot.
-
-As long as at least one possibility is crossed off, or one unit is solved in an iteration of the two stradegies loop, the loop will continue to iterate. Once this is not the case, return_data() is called which checks to see if the board was able to be completed, formats the data along with a message to the user, and opens a file presenting the solved data.
+For more information on the code specifics, veiw the sudoku folder under my projects to see my approach and comments.
