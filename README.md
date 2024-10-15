@@ -2,10 +2,12 @@
 A collection of my current projects on my journey to become a computer scientist, feel free to explore, and see how I approached different problems
 
 
-ADD MISSION/VISION statment CAREER OBJECTIVE
-breifly about me, insparation, ect
+Disciplined and driven Computer Science student with a love for writing code and a fascination for
+machine/deep learning and algorithm design. Eager to understand and approach the complex computational
+problems of the future and contribute to cutting-edge research. Attempting to opportunities to expand my knowledge and skills, and eventually pursue a PhD in the field of computer science.
 
-short, less than 2 paragraphs on each program, main descrition should be understood through code and code comments
+Some of my major inspirations include Alan Turing, Ada Lovelace, science fiction (hyperion), and ai philosophy. 
+
 
 TETRIS (Luke's version)
 
