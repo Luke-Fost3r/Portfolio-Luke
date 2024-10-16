@@ -7,7 +7,8 @@ I am Enthusiastic and facinated with writing code, and the theory behind it, cur
 Some of my major inspirations include Alan Turing, Ada Lovelace, science fiction books (Hyperion & The Invincible), and ai philosophy. 
 
                                                                                                                                              
-A collection of my current projects on my journey as a computer scientist, feel free to explore, and see how I approached different problems  (BELOW) 
+
+Feel free to explore, and see how I approached different problems  (BELOW) 
                                                                                                                                              
 
 
