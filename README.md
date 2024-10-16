@@ -4,9 +4,9 @@
 
 Some of my major inspirations include Alan Turing, Ada Lovelace, science fiction (hyperion), and ai philosophy. 
 
-                                                                                                                                             |       | 
-A collection of my current projects on my journey as a computer scientist, feel free to explore, and see how I approached different problems | BELOW | 
-                                                                                                                                             V       V
+                                                                                                                                             
+A collection of my current projects on my journey as a computer scientist, feel free to explore, and see how I approached different problems  (BELOW) 
+                                                                                                                                             
 
 
 TETRIS (Luke's version)
